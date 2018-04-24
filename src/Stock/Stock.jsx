@@ -11,7 +11,10 @@ class Stock extends React.Component{
       super(props);
       this.state = {
         selectedSymbol:"",
-        selectedItem:null
+        details:null,
+        news:null,
+        chart:null
+
       };
       this.handleSelect = this.handleSelect.bind(this);
     }    
@@ -22,25 +25,31 @@ class Stock extends React.Component{
         var url = "https://api.iextrading.com/1.0/stock/"+e.currentTarget.id+"/batch?types=quote,news,chart&range=1m&last=5";
         if(e.currentTarget.id){
           jq.getJSON(url,function(result){  
-            me.setState({selectedItem:result});
+            me.setState({details:result.quote,
+                         news:result.news,
+                         chart:result.chart
+                        });
             me.setState({selectedSymbol:e.currentTarget.id});
           });
         }}
 
   
     render() {
-      const selectedItem = this.state.selectedItem;
+      const details = this.state.details;
+      const news = this.state.news;
+      const chart = this.state.chart;    
+
      
-      if(selectedItem){
+      if(details){
         return ( 
         <div>
           <div className="leftBar">
           <StockList handleSelect={this.handleSelect}/>
           </div>
           <div className="rightBar">     
-            <StockDetails  selectedItem= {selectedItem.quote} />
-            <StockNews  selectedItem= {selectedItem.news} />
-            <StockRecentTrend  selectedItem= {selectedItem.chart} />
+            <StockDetails  details= {details} />
+            <StockNews  selectedItem= {news} />
+            <StockRecentTrend  selectedItem= {chart} />
           </div>
         </div>)
       }else {   
@@ -48,7 +57,9 @@ class Stock extends React.Component{
           <div>
             <StockList handleSelect={this.handleSelect}/>
           </div>
-        )}
+        )
       }
     }
+}
+
 export default Stock;
