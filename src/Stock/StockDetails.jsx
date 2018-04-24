@@ -14,7 +14,8 @@ class StockDetails extends React.Component{
                   {"OPEN":"open"},{"HIGH":"high"},{"LOW":"low"},{"CLOSE":"close"},
                   {"DELAYED PRICE":"delayedPrice"},{"PREVIOUSE CLOSE":"previousClose"},{"52WKHI":"week52High"},
                   {"52WKLO":"week52Low"},{"YTDCHANGE":"ytdChange"},{"EXCHANGE":"primaryExchange"},{"SECTOR":"sector"}],
-      numbersOfColume:4
+      numbersOfColume:4,
+      currentComponent:"QUOTE"
     };
     this.handleHidden = this.handleHidden.bind(this);
   }
@@ -36,7 +37,7 @@ class StockDetails extends React.Component{
     const numbersOfColume = this.state.numbersOfColume;
     const hidden = this.state.hidden;
     const buttonContent = this.state.buttonContent;
-    const currentComponent = "QUOTE";
+    const currentComponent = this.state.currentComponent;
     if(hidden){
       return (
         <CloseButton handleHidden = {this.handleHidden} buttonContent = {buttonContent} currentComponent = {currentComponent}/>

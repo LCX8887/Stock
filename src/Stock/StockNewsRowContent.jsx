@@ -1,11 +1,13 @@
 import React from 'react';
 
 class StockNewsRowContent extends React.Component{
-    render(){        
+    render(){
+        const summary = this.props.newItem.summary;
+        const source = this.props.newItem.source;        
         return(
             <div>
-           <p>{this.props.newItem.summary}</p>
-           <p>{this.props.newItem.source}</p>
+           <p>{summary}</p>
+           <p>{source}</p>
            </div>
         );
     }

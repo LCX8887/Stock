@@ -2,9 +2,7 @@ import React from 'react';
 import StockDetailsTableRow from './StockDetailsTableRow';
 
 
-class StockDetailsTable extends React.Component{      
-    
-
+class StockDetailsTable extends React.Component{   
     render() {
       const details = this.props.details;
       const headColumeArr = this.props.headColumeArr;

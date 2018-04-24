@@ -9,7 +9,8 @@ class StockNews extends React.Component{
     super(props);
     this.state = {
       hidden:false,
-      buttonContent:"close"
+      buttonContent:"close",
+      currentComponent:"NEWS"
     };
     this.handleHidden = this.handleHidden.bind(this);
   }
@@ -24,10 +25,10 @@ class StockNews extends React.Component{
       }    
     }
     render() {
-      const selectedItem = this.props.selectedItem;
+      const news = this.props.news;
       const hidden = this.state.hidden;
       const buttonContent = this.state.buttonContent;
-      const currentComponent = "NEWS";
+      const currentComponent = this.state.currentComponent;
      if(hidden){
        return (
         <CloseButton handleHidden = {this.handleHidden} buttonContent = {buttonContent} currentComponent = {currentComponent}/>
@@ -35,8 +36,8 @@ class StockNews extends React.Component{
      }else{
        return (
          <div>
-         <CloseButton handleHidden = {this.handleHidden} buttonContent = {buttonContent} currentComponent = {currentComponent}/>
-        <StockNewsTable selectedItem= {selectedItem}/>
+          <CloseButton handleHidden = {this.handleHidden} buttonContent = {buttonContent} currentComponent = {currentComponent}/>
+          <StockNewsTable news= {news}/>
         </div>
        );
      }

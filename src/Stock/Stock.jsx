@@ -37,7 +37,7 @@ class Stock extends React.Component{
     render() {
       const details = this.state.details;
       const news = this.state.news;
-      const chart = this.state.chart;    
+      const chartData = this.state.chart;    
 
      
       if(details){
@@ -48,8 +48,8 @@ class Stock extends React.Component{
           </div>
           <div className="rightBar">     
             <StockDetails  details= {details} />
-            <StockNews  selectedItem= {news} />
-            <StockRecentTrend  selectedItem= {chart} />
+            <StockNews  news= {news} />
+            <StockRecentTrend  chartData= {chartData} />
           </div>
         </div>)
       }else {   

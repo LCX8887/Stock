@@ -24,11 +24,16 @@ class StockNewsRowTitle extends React.Component{
             width:"100%"
         };
         const datetime = this.props.newItem.datetime.slice(0,10);
+        const index = this.props.index;
+        const headline = this.props.newItem.headline;
+        const handleSelect = this.props.handleSelect;
+
+    
         
         return(           
-            <div style={divStyle} onClick={this.props.handleSelect}>
-                <p style={p1Style}>{this.props.index}</p>
-                <p style={p2Style}>{this.props.newItem.headline}</p>
+            <div style={divStyle} onClick={handleSelect}>
+                <p style={p1Style}>{index}</p>
+                <p style={p2Style}>{headline}</p>
                 <p style={p3Style}>{datetime}</p>
              </div>
             

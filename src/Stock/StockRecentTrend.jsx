@@ -8,7 +8,8 @@ class StockRecentTrend extends React.Component{
     super(props);
     this.state = {
       hidden:false,
-      buttonContent:"close"
+      buttonContent:"close",
+      currentComponent:"RECENT STOCK TREND"
     };
     this.handleHidden = this.handleHidden.bind(this);
   }
@@ -26,13 +27,12 @@ class StockRecentTrend extends React.Component{
     render() {
       const hidden = this.state.hidden;
       const buttonContent = this.state.buttonContent;
-      const selectedItem = this.props.selectedItem;
-      const currentComponent = "RECENT STOCK TREND";
-      
-      const dataArray = selectedItem.map(function(item){
+      const chartData = this.props.chartData;
+      const currentComponent = this.state.currentComponent;      
+      const dataArray = chartData.map(function(item){
         return item.volume;
       });
-      const labelsArray = selectedItem.map(function(item){
+      const labelsArray = chartData.map(function(item){
         return item.date;
       })
       const chart = {
@@ -47,7 +47,6 @@ class StockRecentTrend extends React.Component{
             }]}
         
       };
-      console.log(dataArray);
       if(hidden){
         return (
           <div>
