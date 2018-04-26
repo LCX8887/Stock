@@ -10,19 +10,20 @@ class StockDetailsTable extends React.Component{
       const numbersOfColume = this.props.numbersOfColume;
       const headValues = selectHeadValues(details,headColumeArr);
       const tableDetailsArr = selectTableDetails(details,columeArr,numbersOfColume);
+      details.changePercent = Math.floor(details.changePercent*1000)/1000+"%";
 
         return (
           <div>
-          <div>
-            {headValues.map((headValue,index) => 
-              <p key={index}>{headValue}</p>
-            )}
-          </div>
-          <div>
-            {tableDetailsArr.map((tableDetails,index) => 
-              <StockDetailsTableRow key={index} tableDetails={tableDetails}/>
-            )}            
-           </div>
+            <div className="stockDetailsTableHead">
+              {headValues.map((headValue,index) => 
+                <p key={index}>{headValue}</p>
+              )}
+            </div>
+            <div>
+              {tableDetailsArr.map((tableDetails,index) => 
+                <StockDetailsTableRow key={index} tableDetails={tableDetails}/>
+              )}            
+            </div>
           </div>
         );
       }
@@ -34,7 +35,11 @@ StockDetailsTable.defaultProps = {
 function selectHeadValues(obj,arr,num){
   var result = [];
   for(var i=0;i<arr.length;i++){
-    result.push(obj[arr[i]]);
+    if(i==arr.length-1){
+      result.push("("+obj[arr[i]]+")");
+    }else{
+      result.push(obj[arr[i]]);
+    }
   }
   return result;
 }

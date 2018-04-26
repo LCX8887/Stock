@@ -8,7 +8,7 @@ class StockDetailsTableRow extends React.Component{
         const tableDetailsTds = selectTd(tableDetails);
        
         return(
-           <table>
+           <table className="stockDetailsTableBody">
                <thead>
                     <tr>
                         {tableDetailsThs.map((tableDetailsTh,index) => 

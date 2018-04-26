@@ -47,8 +47,7 @@ class StockList extends React.Component{
       const stockList = this.state.sortItems;
       const handleSelect = this.props.handleSelect;
       const handleSort = this.handleSort;
-      const currentTime = this.state.currentTime;
-      
+      const currentTime = this.state.currentTime;     
      
         return (
           <div>

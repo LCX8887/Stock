@@ -5,10 +5,10 @@ class StockNewsRowContent extends React.Component{
         const summary = this.props.newItem.summary;
         const source = this.props.newItem.source;        
         return(
-            <div>
-           <p>{summary}</p>
-           <p>{source}</p>
-           </div>
+            <div className="stockNewsRowContent">
+                <p>{summary}</p>
+                <p>{source}</p>
+            </div>
         );
     }
     

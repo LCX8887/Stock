@@ -12,10 +12,10 @@ class StockTable extends React.Component{
         const tableHead = selectTableHead(this.props.columeArr);
        
     return(    
-        <table>
-            <StockTableHead tableHead={tableHead}/>   
-            <StockTableBody stockList={stockList} handleSelect={handleSelect}/>
-            <StockTableFoot currentTime={currentTime} />            
+        <table className="stockTable">
+            <StockTableHead tableHead={tableHead}/>               
+            <StockTableFoot currentTime={currentTime} />   
+            <StockTableBody stockList={stockList} handleSelect={handleSelect}/>         
       </table>
     );}
 }
